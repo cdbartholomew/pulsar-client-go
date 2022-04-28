@@ -76,6 +76,7 @@ func consume(consumeArgs *ConsumeArgs, stop <-chan struct{}) {
 	consumer, err := client.Subscribe(pulsar.ConsumerOptions{
 		Topic:            consumeArgs.Topic,
 		SubscriptionName: consumeArgs.SubscriptionName,
+		Type:             pulsar.Shared,
 	})
 
 	if err != nil {
